@@ -1,0 +1,181 @@
+Issue Type,Summary,Created,Status,Components,Components,Reporter,Reporter Id,Labels,Assignee,Assignee Id,Issue key,Issue id,Custom field (Steps To Reproduce),Description
+Bug,Reviewer stuck on infinite loop when uploading files in project from sdk,30/Jul/21 1:34 AM,Pending QA Testing,Project,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10458,23037,1. add a collaborator as reviewer.2. login through sdk as reviewer.3. mypro = cnvrg.projects.get('newproject')4. mypro.put_files(['file.txt']),"env: http://app.sdkhackathon.cnvrg.io/testtest/projects/newproject/notebook_sessions/show/gbz9hva1tfdk79q1wf9yadmin user: test1@email.comreview user: test6@email.comwhen review user tries to upload file in project using put_files() ,the user recieves ""Unauthorized to perform this action."" but user is able to upload files from web ui.Also the user terminal is stuck on infinte loop."
+Bug,Webapps are not getting public,30/Jul/21 1:29 AM,Pending QA Testing,WebApp,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,,,DEV-10453,23032,Steps: 1) Create an app           2) Let it go in online status           3) From iframe click on share button: type email id and click on sharePlease note: also not getting mail for shared webapps,Url:http://app.sdkhackathon.cnvrg.io/org10/projects/np/webapps/drcm1gyabp3d8xzwyyg4user: singh.inderpreet@thinkfuture.uspass:123456
+Bug,"On using deleted hyper experiment's volume in a new experiment, experiment overview page is not opening.",30/Jul/21 1:29 AM,Pending QA Testing,Experiments,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,Aviv Day,6003df262b411b007688440d,DEV-10452,23031,"Precondition: 1. Hyper experiment with yearly schedule and new volume should be created.Steps:1. Navigate to Project and click on experiment.2. Delete all the hyper experiment.3. Now create a new experiment with the volume that was used in the deleted hyper experiment.4. Now Try to navigate to the overview page of the new experiment.Actual Result: On using deleted hyper experiment's volume in a new experiment, experiment overview page is not opening.Expected Result: Experiment overview page should get opened.","Url: http://app.sdkhackathon.cnvrg.io/test/projects/test28/experiments/j2vwea7aqtyuaaavtov8#overviewUsername: testcnvrg26@mailinator.comPassword: 123456Experiments name: testexp4, testexp5"
+Bug,SDK/ endpoints.get_rules() not working,30/Jul/21 1:29 AM,Pending QA Testing,New SDK,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,,,DEV-10450,23029,">>> cnvrg = Cnvrg(domain='http://app.sdkhackathon.cnvrg.io/',email='test1@email.com',password='123456')>>> mypro = cnvrg.projects.get('newproject')>>> e = mypro.endpoints.get('bxinazzmwofm2vtdv1vx')>>> for i in e.get_rules():print(i)",Url:http://app.sdkhackathon.cnvrg.io/testtest/projects/newproject/endpoints/show/bxinazzmwofm2vtdv1vx#conditionsuser: test1@email.compassword: 123456
+Bug,Flow: One of the Task is stuck on initialize (See the steps),30/Jul/21 1:29 AM,Pending QA Testing,Flow,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10449,23028,1. Take two custom Task and One data task.2. Now connect Data Task to Task one only. Make sure Task 1 and Task 2 are not connected to each other.3. Run the flow and observe that Task 2 will be success but Task ! will stuck on initialize and No logs will be showing for this.,url: http://app.sdkhackathon.cnvrg.io/org02/projects/project01/experiments?query=flow%20%3D%20%27Flow%2095%27%20AND%20version%20%3D%20%27Version%205%27User: singh.priyatam@tftus.comPassword: 123456
+Bug,"On comparing two experiment in the tensoarboard, ""updating experiment"" loader keeps loading.",30/Jul/21 1:29 AM,Pending QA Testing,WebApp,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,Aviv Day,6003df262b411b007688440d,DEV-10447,23026,"Precondition: Two experiment should be running.Steps:1. Navigate to project and click on experiment page.2. In the experiment index page, click on tensorboard.3. Start a tensorboard session using two experiment.4. Once the tensorboard in online, click on experiment in the tensorboard app header.5. Select both the experiment from dropdown and click on save.Actual Result: On comparing two experiment in the tensoarboard, ""updating experiment"" loader keep on loading.Expected Result: Loader should go away and experiment should get compared.",URL: http://app.sdkhackathon.cnvrg.io/test/projects/test29/webapps/gqkfya1kyfker821dt7qUsername: testcnvrg26@mailinator.comPassword: 123456
+Bug,CLI-Flow: Error message is not correct if we run and existing flow having deploy task only using its YAML.,29/Jul/21 12:59 AM,Pending QA Testing,Flow,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,Itay Ariel,5b33d364c4ac74625bdc0c18,DEV-10446,23024,"1. Run a flow with deploy task and create an endpoint.2. Now take the YAML of the same flow and create another Endpoint with same yaml.3. Observe that while importing the flow, it is showing an error message like ""You do not have permission to use this template"".It should be like same title has been taken from some other ",Url: http://app.sdkhackathon.cnvrg.io/org02/projects/project01/flows/xo7yxszzexyyzrmxlvdm/flow_versions/newUser: singh.priyatam@tftus.comPassword: 123456
+Bug,SDK/ endpoint.update_replicas accepting 0 value as number of pods,29/Jul/21 12:31 AM,Pending QA Testing,New SDK,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,Itay Ariel,5b33d364c4ac74625bdc0c18,DEV-10433,23011,"branch: sdkhackathon>>> e = mypro.endpoints.get('h8uxeiqnjtrrd51ztjnm')>>> e.update_replicas(0,0)",we can set 0 as the number of pods from sdk in endpoints but in web it only accepts positive integers greater than 0.env: http://app.sdkhackathon.cnvrg.io/testtest/projects/pro04/endpoints/show/h8uxeiqnjtrrd51ztjnm#configuser: test1@email.compassword: 123456
+Bug,SDK/ dataset.sync_local() giving error,28/Jul/21 10:48 AM,Pending QA Testing,Datasets,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,,,DEV-10416,22991,>>> myds.clone()>>> import os>>> os.chdir(myds.slug)>>> myds.sync_local(),dataset.sync_local() not working.cnvrgp.errors.CnvrgFileError: Couldn't find config.yaml. Please clone project/dataset before syncing.env: http://app.sdkhackathon.cnvrg.io/testtest/projects/pro01/notebook_sessions/show/ecrg7zkqke57euxu9lu4user: test1@email.compassword: 123456
+Bug,SDK/ dataset.download() giving error,28/Jul/21 10:48 AM,Pending QA Testing,Datasets,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,,,DEV-10415,22990,>>> myds.clone()>>> import os>>> os.chdir(myds.slug)>>> myds.download(),dataset.download() not working.FileNotFoundError: [Errno 2] No such file or directory: './.cnvrgp/cnvrgp.config'env: http://app.sdkhackathon.cnvrg.io/testtest/projects/pro01/notebook_sessions/show/ecrg7zkqke57euxu9lu4user: test1@email.compassword: 123456
+Bug,SDK/ dataset.clone() not downloading files,28/Jul/21 10:48 AM,Pending QA Testing,Datasets,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10414,22989,"1. myds = cnvrg.datsets.get('myds')
+2. myds.clone()observe: empty folder is downloaded",dataset.clone only downloads dataset folder and not the files in it. env: http://app.sdkhackathon.cnvrg.io/testtest/datasets/myds email: test1@email.com password: 123456
+Bug,Reviewer:Not getting any error on web when deleting or stopping any admin's job,28/Jul/21 10:48 AM,Pending QA Testing,Flow,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10410,22985,"1. Login through reviewer id
+2. Now try to delete or stop the admin followin jobs >Endpoint >Experiment >Flow
+3.Observe it will doesn't through any error on web for above modules
+4.We will get error on console when openPlease 
+Note: For workspace and webapps we are getting error on web when stopping or deleting it",Url:http://app.sdkhackathon.cnvrg.io/org10/projects/permcheck/endpointsUser: rev01@gmail.comPass:123456
+Bug,End commit is not displayed in exp overview pagewhen experiment is created experiment.rb,28/Jul/21 10:48 AM,Pending QA Testing,Experiments,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10408,22983,"Precondition: 
+1.Project should be created.
+2. experiment.rb or experiment.py file should be present in the files of project.
+Steps: 
+1. Login to Cnvrg.
+2. Navigate to project and click on experiments.
+3. Create new experiment using the ruby or python command.
+4. Once the experiment status is success, click on configuration tab from experiment overview page.
+Actual Result: End commit is not displayed when experiment is created using ruby or python command.
+Expected Result: End commit should be present when the experiment status is "" success"".",Url: http://app.sdkhackathon.cnvrg.io/test/projects/test27/experiments/xidekvifestwc2aakug8#overviewUsername: testcnvrg26@mailinator.comPassword: 123456
+Bug,"Schedule Flow: In Every hr, Next run is not showing correct over DAG, also the time changes in flow.",28/Jul/21 10:48 AM,Pending QA Testing,Flow,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10407,22982,"1. Run a flow with every hr.
+2. Now open the experiment created through flow and on show page observe that it shows the next run before 30 min.
+3. Now go to flow and observe that schedule time is changed there by 30 min automatically.","Url: [http://app.sdkhackathon.cnvrg.io/org02/projects/project01/flows/wcqejzvytcjxgdjt1hrz/?flow_version_slug=n5h53hm6txa8mvvfhwrx  |http://app.sdkhackathon.cnvrg.io/org02/projects/project01/flows/wcqejzvytcjxgdjt1hrz/?flow_version_slug=n5h53hm6txa8mvvfhwrxUser:]
+
+[User:|http://app.sdkhackathon.cnvrg.io/org02/projects/project01/flows/wcqejzvytcjxgdjt1hrz/?flow_version_slug=n5h53hm6txa8mvvfhwrxUser:] singh.priyatam@tftus.comPassword: 123456"
+Bug,SDK:Getting error on updating version using update_replicas(),28/Jul/21 10:48 AM,Pending QA Testing,New SDK,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10405,22980,"1. Create an endpoint
+2. Now when it is in running status
+3. Run following command:cnvrg.projects.endpoints.get(slug).update_replicas()
+4. Observe getting error: resource not found even though endpoint is there and in running status",Url:http://app.sdkhackathon.cnvrg.io/org10/projects/car/notebook_sessions/show/pvhqtcwwnhg7s6fgt4ncUser: singh.inderpreet@thinkfuture.uspass: 123456
+Improvement,experiment.logs() is missing,26/Jul/21 5:45 AM,Pending QA Testing,,,leah kolben,5b321148349a91633c1b9d14,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10354,22920,,experiment.logs() is missing this will return all the logs per experiment - should be chunkenized with page size 
+Bug,Pull_artifacts skips on running experiments,25/Jul/21 1:08 PM,Pending QA Testing,New SDK,,Ofir Peer,5f5dd4c7b9fcc100770e0674,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10348,22913,"* run an experiment that creates artifacts
+*run pull_artifacts with wait_for_success = True, before the experiment ends.
+* pull_artifacts will return without waiting and downloading the artifact",see steps
+Improvement,Fix app tests,25/Jul/21 12:46 PM,Pending QA Testing,,,Itay Ariel,5b33d364c4ac74625bdc0c18,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10346,22911,,https://devops.jenkins.cnvrg.io/job/app-ci/14233/testReport/
+Bug,In dataset On clearing the cached commit getting 404 error,22/Jul/21 1:14 PM,Pending QA Testing,Dataset Caching ,Datasets,Inderpreet Singh,5fcf47448ebf7f00687bf8de,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10339,22900,"1. Cached any dataset commit to nfs
+2. Now when its successfully done
+3. Go to commits tab of dataset
+4. Now clear the cached commit
+5. Observe getting 404 error- not able to clear the cache"," !image-2021-07-22-15-44-16-897.png|thumbnail!  !image-2021-07-22-15-44-00-023.png|thumbnail! 
+
+
+Url:http://app.aks-cicd-6351.cnvrg.io/org30/datasets/dats/commits/fa35e192121eabf3dabf9f5ea6abdbcbc107ac3b/cache?nfs=a2zkf2vfbmcahzegkaez
+user/password: singh.inderpreet@thinkfuture.us/123456"
+Bug,Auto sync/Sync is not creating commit with files in the workspace.,22/Jul/21 12:05 PM,Pending QA Testing,Workspaces,,Kaustubh Patro,60eef85443c95600703de85a,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10336,22897,"Precondition: 1. Project should be created.
+
+Steps:
+1. Login to Cnvrg.
+2. Navigate to project and click on workspace.
+3. Start a new workspace.
+4. Once the workspace is online, navigate to files and add few files.
+5. Navigate back to workspace and click on info icon.
+
+Actual Result: Auto sync/Sync is not creating commit with files in the workspace
+
+Expected Result: Auto sync/Sync should create commit with files in the workspace.
+
+Note: Verified it on Master and its working fine there.
+
+Url: http://app.aks-cicd-6380.cnvrg.io/test/projects/testproject/notebook_sessions/show/wactg6c3rnzyxum5nfys#info
+
+Username/password: testcnvrg21@mailinator.com/123456
+
+Please refer the attached screenshot.",Auto sync/Sync is not creating commit with files in the workspace.
+Bug,SDK/ Commit is not generated with files after we sync the files in workspace.,22/Jul/21 10:31 AM,Pending QA Testing,New SDK,Workspaces,Kaustubh Patro,60eef85443c95600703de85a,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10334,22895,"Precondition: 1. Project should be created.
+2. Workspace should be created.
+
+Steps:
+1. Login to Cnvrg.
+2. Open project and click on files.
+3.  Now create some files from terminal.
+4. Sync the workspace using following command:
+from cnvrgp import Cnvrg
+cnvrg = Cnvrg()
+myproj = cnvrg.projects.get(""myproject"")
+exp = myproj.workspaces.sync([""workspace-slug""])
+
+Actual Result: Commit is not generated with files after we sync the files in workspace.
+
+Expected Result: Commit should be available after we sync the files in workspace with files.
+
+Url: http://app.aks-cicd-6380.cnvrg.io/test/projects/testproject/notebook_sessions/show/ehdceyx3zme1zaefqqzm#workspace
+
+username/password: testcnvrg22@mailinator.com/123456
+
+Please refer the attached screenshot.",SDK/ Commit is not generated with files after we sync the files in workspace.
+Bug,SDK-Workspace: Default template is getting used automatically when using spark template of spark resource to create a workspace.,21/Jul/21 3:23 PM,Pending QA Testing,Workspaces,,Kaustubh Patro,60eef85443c95600703de85a,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10328,22888,"Precondition: 1. Project should be created.
+2. Spark resource should be created.
+3. Spark template in spark resource should be created.
+
+Steps:
+1. Execute the following command:
+from cnvrgp import Cnvrg
+cnvrg = Cnvrg(domain=""http://app.aks-cicd-6353.cnvrg.io"", email=""testcnvrg21@mailinator.com"", password=""123456"")
+2.Get the cnvrg spark image:
+im = cnvrg.images.get(""wbdgwamqkwnk6usu65uw"")
+3. Get the project:
+newproj=cnvrg.projects.get(""gitproject"")
+4. Create new workspace using spark template of spark resource:
+ws=newproj.workspaces.create(""testworkspace12"",template_names=[""sparkcustomtemplate""],image=im,notebook_type=""vscode"")
+
+Actual Result: Default template is getting used automatically when using spark template of spark resource to create a workspace.
+
+Expected Result: Sparktemplate of spark resource should get used to create workspace.
+
+Url: http://app.aks-cicd-6353.cnvrg.io/test/projects/gitproject/notebook_sessions/show/oszfnjwehfbdkjofhp3z
+
+Username/Password: testcnvrg21@mailinator.com/123456
+
+Please refer the attached screenshot.",Default template is getting used automatically when using spark template of spark resource to create a workspace.
+Bug,SDK/ endpoint object is not returning export data values in case of recurring configure feedabck loop in case of immediate type,19/Jul/21 3:43 PM,Pending QA Testing,New SDK,,Amandeep Singh,557058:f8a05bbd-48ed-44bc-95af-07dfc2427cbe,,,,DEV-10299,22823,"from cnvrgp import *
+cnvrg = Cnvrg(domain=""http://app.aks-cicd-6306.cnvrg.io/"",
+        email=""test1@email.com"",
+        password=""123456"",
+        organization=""testtest"")
+project = cnvrg.projects.get(""test-project"")
+endpoint = project.endpoints.get('aman')
+endpoint.configure_feedback_loop(dataset_slug='aman', scheeeduling_type=0, cron_string=None)", !image-2021-07-19-18-12-52-794.png|thumbnail! 
+Bug,SDK: On doing project and dataset clone it is not bringing the files which uploaded through web,19/Jul/21 11:10 AM,Pending QA Testing,Datasets,Project,Inderpreet Singh,5fcf47448ebf7f00687bf8de,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10291,22810,"1. Go to project upload some files
+2. Now go to terminal and do clone of project using clone()
+3. Observe in local machine you will see those files
+4. Now goto web and upload some more files 
+5. Again do clone of project: observe in local machine you won't see new files which got added second time
+
+This issue exist for download() also
+
+Checked this on Ubuntu 18.04
+
+Please Note: We can only see files which got added first time and on uploading further files and doing clone of project and datasets we won't see files in local machine","
+
+ !1-Before_Clone_Files_in_Web.png|thumbnail!  !1-Before_Clone_Local.png|thumbnail!  !3.Cloning_project.png|thumbnail!  !4-Files_in_local.png|thumbnail!  !5-Added_new_files_in_Web.png|thumbnail!  !6-Cloning_after_adding_newfile.png|thumbnail!  !7-2ndTime_Clone_files_Local.png|thumbnail! 
+
+Url: http://app.aks-cicd-6304.cnvrg.io/testnew/projects/nongit
+user/password: admin09@email.com/123456"
+Bug,SDK/ endpoint.log_metric() not working,16/Jul/21 12:15 PM,Pending QA Testing,Endpoints,New SDK,Neha Arora,557058:2e01db2a-f9c7-4bae-af66-459fed6a7344,,Itay Ariel,5b33d364c4ac74625bdc0c18,DEV-10268,22785,"branch: sdkhackathon
+
+>>> cnvrg = Cnvrg(domain = 'http://app.aks-cicd-6285.cnvrg.io/', email='test1@email.com', password='123456', organization='testtest')
+>>> end = cnvrg.projects.get('newps').endpoints.get('qjknwp49ywnmhzcpfnju')
+>>> end.reload()
+>>> end.status
+'ongoing'
+>>> end.log_metric(name=""accuracy"", y=0.2, x=1)"," !image-2021-07-16-14-43-09-477.png|thumbnail! 
+env: http://app.aks-cicd-6285.cnvrg.io/testtest/projects/newps/endpoints/show/qjknwp49ywnmhzcpfnju
+user:test1@email.com
+password:123456"
+Bug,SDK: Dataset clone stuck when there are large files in dataset,13/Jul/21 12:53 PM,Pending QA Testing,Datasets,New SDK,Inderpreet Singh,5fcf47448ebf7f00687bf8de,,Inderpreet Singh,5fcf47448ebf7f00687bf8de,DEV-10219,22692,"1. Upload large files in dataset say 20k
+2. Now when there are large files
+3. Use following command to clone dataset into local
+cnvrg.datasets.get(slug).clone()
+4. Observe it will stuck for long","
+ !1-Dataset.png|thumbnail!  !2-Files_in_dataset.png|thumbnail!  !3-Clone_stuck.png|thumbnail!  !4-Files.png|thumbnail! 
+
+Url: http://app.aks-cicd-6199.cnvrg.io/Testnew/datasets/newtest2
+user/password: admin09@email.com/123456"
+Bug,SDK/ build_image() not showing error when using default private registry,07/Jul/21 2:31 PM,Pending QA Testing,New SDK,Workspaces,Neha Arora,557058:2e01db2a-f9c7-4bae-af66-459fed6a7344,,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10140,22488,"branch: sdkhackathon
+
+>>> wo6 = mypro.workspaces.create(title='newwork')
+>>> wo6.reload()
+>>> wo6.status
+'ongoing'
+>>> wo6.build_image('cnvrg', 'testrepo')"," !image-2021-07-07-16-57-25-506.png|thumbnail! 
+ !image-2021-07-07-16-57-58-280.png|thumbnail! 
+
+When using default private registory in build image sdk, the image is built and visible on web with an error status but sdk console is not throwing any error as well as there are no logs on web regarding the error."
+Bug,SDK/ rstudio workspace not throwing error when using start_tensorboard(),07/Jul/21 11:49 AM,Pending QA Testing,New SDK,Workspaces,Neha Arora,557058:2e01db2a-f9c7-4bae-af66-459fed6a7344,SDK,moshe rozenfeld,5e256e3aadb9030e6a42fc4f,DEV-10136,22483,"branch: sdkhackathon
+
+Create rstudio workspace.
+workspace.start_tensorboard()"," !image-2021-07-07-14-15-44-842.png|thumbnail! 
+ !image-2021-07-07-14-18-58-540.png|thumbnail! "
+Bug,SDK/ Not able to use domains with length more than 3 in email when creating user sdk.,06/Jul/21 1:09 PM,Pending QA Testing,New SDK,User Settings,Neha Arora,557058:2e01db2a-f9c7-4bae-af66-459fed6a7344,SDK,Neha Arora,557058:2e01db2a-f9c7-4bae-af66-459fed6a7344,DEV-10113,22426,"branch: sdkhackathon
+
+user_new=client.register(username=""test123"",email=""test123@email.info"", password=""123456"")","!image-20210706-131650.png|width=879,height=157!
+
+ "
